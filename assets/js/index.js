@@ -203,4 +203,29 @@ function writeNumbers (n){
 
 console.log(writeNumbers(25));
 
+// 3 3.1 Создать числовой массив и проинициализировать его из 25 элементов.3.1*Инициализация с помощью случайных чисел3.2 Вывести элементы с четными индексами3.3 Вывести только четные элементы (четные числа делятся на 2 без остатка)3.4 Вывести индексы нулевых элементов (элемент равен нулю)3.5 Подсчитать количество нулевых элементов
+
+function getRandomIntInclusive (min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+const numArray = [];
+for (let i = 0; i<25; i++){
+    numArray.push(getRandomIntInclusive(0, 25));
+  }
+
+  for (let i = 0; i<25; i++) {
+      if(i % 2 === 0) {
+          console.log(i);
+      }
+  }
+
+  console.log(numArray);
+
+
+
+
+  
+
 
