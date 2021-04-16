@@ -170,6 +170,7 @@ console.log (sum);
 // или
 
 function CountedSum(n) {
+  
     if (n < 1) {
         throw new RangeError();
     }
@@ -180,9 +181,7 @@ function CountedSum(n) {
     return result;
 }
 
-console.log(CountedSum(6));
-
-
+console.log(CountedSum(5));
 
 
 // 5 Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:вывод fizzbuzz вместо чисел, кратных как 3, так и 5.вывод fizz вместо чисел, кратных 3;вывод buzz вместо чисел, кратных 5;
@@ -214,14 +213,31 @@ const numArray = [];
 for (let i = 0; i<25; i++){
     numArray.push(getRandomIntInclusive(0, 25));
   }
-
-  for (let i = 0; i<25; i++) {
-      if(i % 2 === 0) {
-          console.log(i);
-      }
-  }
-
   console.log(numArray);
+// Элементы с четными индексами
+  numArray.forEach((item, index) => {
+    if(index % 2 === 0) {
+        console.log(item);
+    }
+  });
+ 
+// только четные элементы
+
+numArray.forEach((item) =>{
+    if (item % 2 === 0) {
+        console.log(item);
+    }
+});
+
+// индексы нулевых элементов
+
+numArray.forEach((item, index) => {
+    if(item === 0){
+        console.log(index);
+    }
+});
+
+  
 
 
 
