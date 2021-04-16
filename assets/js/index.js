@@ -62,10 +62,19 @@ class ElectronicBook extends Book {
     get format(){
         return this._format;
     }
+    set elNumber (newElNumber) {
+        if (typeof newElNumber !== 'number') {
+            throw new TypeError();
+        }
+        this._elNumber = newElNumber;
+    }
+    get elNumber(){
+        return this._elNumber;
+    }
 
 }
 const b = new Book ('Mark Tven', 'Tom Soyer', 2019, 'Svet');
-const elB = new ElectronicBook ('Pushkin', 'Evgeniy Onegin', 1995, 'Ranok', 'elBook', '12345');
+const elB = new ElectronicBook ('Pushkin', 'Evgeniy Onegin', 1995, 'Ranok', 'elBook', 12345);
 console.log(b);
 console.log (elB);
 
@@ -77,7 +86,14 @@ class Student {
         this.surname = surname;
         this.isMale = isMale;
         this.contactInfo = contactInfo;
-        this.univerInfo = univerInfo;
+        this.univerInfo = univerInfo ? univerInfo : null;
+    }
+    set univerInfo (newUniverInfo) {
+       
+        this._univerInfo = newUniverInfo;
+    }
+    get univerInfo() {
+        return this._univerInfo;
     }
     set name (newName){
         if (typeof newName !== 'string') {
@@ -121,9 +137,15 @@ class Student {
     }
 
     get faculty() {
+        if (this.univerInfo == null) {
+            return "Student doesn't study"
+        }
         return this._univerInfo.faculty;
     }
     get department () {
+        if (this.univerInfo == null) {
+            return "Student doesn't study"
+        }
         return this._univerInfo.department;
     }
 }
@@ -139,11 +161,17 @@ class UniverInfo {
         }
         this._faculty = newFaculty;
     }
+    get faculty () {
+        return this._faculty;
+    }
     set department (newDepartment){
         if (typeof newDepartment !== 'string'){
             throw new TypeError();
         }
-        this._departmnet = newDepartment;
+        this._department = newDepartment;
+    }
+    get department () {
+        return this._department;
     }
 }
 const ui = new UniverInfo ('management', 'Organization Management');
@@ -176,7 +204,7 @@ function CountedSum(n) {
     }
     let result = 0;
     for (let i = 1; i <= n; i++){
-        result += 1;
+        result += i;
     }
     return result;
 }
@@ -237,6 +265,15 @@ numArray.forEach((item, index) => {
     }
 });
 
+// Посчитать количество нулевых элементов
+ 
+let counter = 0;
+numArray.forEach((item, index) => {
+    if(item === 0) {
+        counter ++;
+        console.log(index);
+    }
+});
   
 
 
